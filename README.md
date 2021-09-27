@@ -7,9 +7,20 @@ Front-end : Next js
 
 Back-end : Django
 
-# โปรดอ่าน requirement.txt จำเป็นต้องลง Tool ต่อไปนี้ 
+# สิ่งที่จำเป็นต้องมี 
 
 Tool :  frontend - axios
+
+		Using npm:
+
+		$ npm install axios
+		Using bower:
+
+		$ bower install axios
+		Using yarn:
+
+		$ yarn add axios
+
 
 backend - Django, django-cors-headers
 
