@@ -12,10 +12,15 @@ Back-end : Django
 Tool :  frontend - axios
 
 Using npm:
+
 	$ npm install axios
+
 Using bower:
+
 	$ bower install axios
+
 Using yarn:
+
 	$ yarn add axios
 
 
