@@ -15,7 +15,7 @@ backend - Django, django-cors-headers
 
 หรือลงทีเดียว(สำหรับ backend) ให้ใช้คำสั่งต่อไปนี้
 
-pip install -r requirement.txt
+	pip install -r requirement.txt
 
 # วิธีการใช้งาน 
 ต้องรัน django และ frontend แยกกัน
