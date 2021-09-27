@@ -11,17 +11,17 @@ Back-end : Django
 
 Tool :  frontend - axios
 
-Using npm:
+	Using npm:
 
-	$ npm install axios
+		$ npm install axios
 
-Using bower:
+	Using bower:
 
-	$ bower install axios
+		$ bower install axios
 
-Using yarn:
+	Using yarn:
 
-	$ yarn add axios
+		$ yarn add axios
 
 
 backend - Django, django-cors-headers
