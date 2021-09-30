@@ -1,0 +1,2 @@
+## ปัญหา ที่ไฟล์ Content.tsx
+axios ดึงข้อมูลจาก views.py ที่ url http://localhost:8000/ ไม่ได้ คือ ไม่เข้า url เลย

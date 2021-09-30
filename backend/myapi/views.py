@@ -7,9 +7,14 @@ from django.http import HttpResponse, JsonResponse
 def index(request):
 	print("index")
 	data = {
-		"msg":"This is long text"
+		"msg":"Please let me fetch this data",
+		"2":"Hope you can get what you want",
 	}
 	return JsonResponse(data)
 
 def test(request):
-	return HttpResponse("<h1>Test</h1>")
+	print("test")
+	data = {
+		"msg":"This is text from /test",
+	}
+	return JsonResponse(data)

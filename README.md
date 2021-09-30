@@ -9,7 +9,9 @@ Back-end : Django
 
 # สิ่งที่จำเป็นต้องมี 
 
-Tool :  frontend - axios
+Tool :  frontend - axios, material-ui v^5.0.1
+	
+	yarn install ลง tool ทั้งหมดใน package.json หรือ tool ด้านล่างนี้ทั้งหมด
 
 	Using npm:
 
@@ -22,6 +24,15 @@ Tool :  frontend - axios
 	Using yarn:
 
 		$ yarn add axios
+		
+	package สำหรับ materail-UI :
+		
+		npm install @emotion/react
+		
+	or
+
+	 	yarn add @emotion/react
+
 
 
 backend - Django, django-cors-headers

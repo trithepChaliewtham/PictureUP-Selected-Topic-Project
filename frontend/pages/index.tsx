@@ -1,23 +1,30 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+// import Component
+import Footer from './component/Footer';
+import Header from './component/Header';
+import Navbar from './component/Navbar'; 
+import Content from './component/Content';
+// import material-ui
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
-const Home: NextPage = () => {
+export default function Home(){
+  // const divs = 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>PictureUP</title>
-      </Head>
 
-      <main className={styles.main}>
-        Body
-      </main>
+    <div container>
+      <Header />
+      <Navbar />
+      
+      <Container>
 
-      <footer className={styles.footer}>
-        Footer
-      </footer>
+          <Content />
+        
+
+      </Container>
+
+      <Footer/>
     </div>
   )
 }
 
-export default Home
+
