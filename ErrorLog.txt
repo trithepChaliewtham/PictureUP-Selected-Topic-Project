@@ -1,2 +1,5 @@
 ## ปัญหา ที่ไฟล์ Content.tsx
-axios ดึงข้อมูลจาก views.py ที่ url http://localhost:8000/ ไม่ได้ คือ ไม่เข้า url เลย
+axios ดึงข้อมูลจาก views.py ที่ url http://localhost:8000/ ไม่ได้ คือ ไม่เข้า url เลย --> Fixed
+
+Sat Oct 9 
+Dynamic router 30% cannot map from state ? --> In progress
