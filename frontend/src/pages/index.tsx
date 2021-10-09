@@ -6,25 +6,34 @@ import Content from './component/Content';
 // import material-ui
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import axios from 'axios';
 
+const stylePage={
+  backgroundColor : 'white',
+  width: '100%',
+  
+}
 export default function Home(){
-  // const divs = 
   return (
 
-    <div container>
+    <div container style={stylePage} >
       <Header />
       <Navbar />
       
-      <Container>
+      <Container >
 
           <Content />
-        
 
       </Container>
 
-      <Footer/>
+      <Footer />
     </div>
   )
 }
+
+
+
+
+
 
 

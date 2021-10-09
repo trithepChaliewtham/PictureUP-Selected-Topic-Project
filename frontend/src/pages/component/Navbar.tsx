@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
+
 
 export default function Navbar() {
   return (
@@ -24,7 +26,9 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Welcom to PictureUP
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link href="/Loginpage">
+            <Button color="inherit" >Login</Button>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>
