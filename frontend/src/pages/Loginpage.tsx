@@ -1,7 +1,9 @@
 import { useState } from 'react'
+// component
 import Footer from './component/Footer';
 import Header from './component/Header';
 import Navbar from './component/Navbar'; 
+// mui
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,7 +23,7 @@ const Loginpage = () =>{
 
 	const formhandle = async () =>{
 		try{
-			const res = await axios.post('http://localhost:8000/api/login', { username , password } ) 
+			const res = await axios.post('http://localhost:8000/login', { username , password } ) 
 		}catch(err){
 			console.log(err)
 		}
@@ -88,7 +90,7 @@ const Loginpage = () =>{
 						</form>
 						<form>
 							<Typography  underline="always" sx={{mt : 1,mb : 20 ,'&:hover' : { color: 'blue' } }} variant="h6" component="h6">
-								<Link style={{ color: "blue"}}href="/" sx={{ mt : 2}}>
+								<Link style={{ color: "blue"}} href="/Signup" sx={{ mt : 2}}>
 								  Sign Up here! 
 								</Link> 
 							</Typography>  

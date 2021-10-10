@@ -1,5 +1,20 @@
 ## ปัญหา ที่ไฟล์ Content.tsx
 axios ดึงข้อมูลจาก views.py ที่ url http://localhost:8000/ ไม่ได้ คือ ไม่เข้า url เลย --> Fixed
 
+## ปัญหาที่ไฟล์ content.tsx 
 Sat Oct 9 
-Dynamic router 30% cannot map from state ? --> In progress
+Dynamic router 30% cannot map from state ? --> Fixed at Sun Oct 10 01:47:47 PM +07 2021
+
+## ปัฐหาที่ csrf ไม่เห็นขณะส่งไปให้ backend
+Sun Oct 10 
+
+frontend :
+	
+	setting.py เพิ่ม configuration ของ csrf
+	At Network(Fetch/XHR) Error :  status code 403 Forbidden,
+
+backend : 
+
+	response from backend :
+			Forbidden (CSRF cookie not set.): /signup
+			[10/Oct/2021 06:50:45] "POST /signup HTTP/1.1" 403 2870  

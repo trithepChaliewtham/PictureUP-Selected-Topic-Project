@@ -8,7 +8,7 @@ const styleFooter={
 }
 export default function Footer(){
     return (
-        <Typography style={styleFooter} sx={{ mt:7  }} variant="h5" component="h2">
+        <Typography style={styleFooter} sx={{ mt:7  }} variant="h6" component="h6">
             <a href="https://github.com/trithepChaliewtham/PictureUP-Selected-Topic-Project" target="_blank">
                 <i>Copy Right @ by trithep.ch.62@ubu.ac.th </i>
             </a>

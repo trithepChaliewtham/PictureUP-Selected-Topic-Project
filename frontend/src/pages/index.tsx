@@ -1,3 +1,4 @@
+import { useState ,} from 'react';
 // import Component
 import Footer from './component/Footer';
 import Header from './component/Header';
@@ -6,6 +7,7 @@ import Content from './component/Content';
 // import material-ui
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+// axios
 import axios from 'axios';
 
 const stylePage={
@@ -13,6 +15,8 @@ const stylePage={
   width: '100%',
   
 }
+
+
 export default function Home(){
   return (
 
@@ -21,7 +25,7 @@ export default function Home(){
       <Navbar />
       
       <Container >
-
+          
           <Content />
 
       </Container>
@@ -30,6 +34,8 @@ export default function Home(){
     </div>
   )
 }
+
+
 
 
 
