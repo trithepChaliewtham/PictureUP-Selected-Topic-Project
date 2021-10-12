@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # app name is myapi
     'myapi',
+    # 3rd party apps: corsheaders and rest_framework 
     'corsheaders',
     'rest_framework',
 ]
@@ -49,7 +51,10 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.BrokenLinkEmailsMiddleware',
+    
+    # corsheaders middleware
     'corsheaders.middleware.CorsMiddleware',
+    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -87,14 +92,23 @@ WSGI_APPLICATION = 'mysite_backend.wsgi.application'
 # SESSION_COOKIE_SECURE = True
 # SESSION_COOKIE_HTTONLY = True
 
-CSRF_COOKIE_SAMESITE = "Lax"
-SESSION_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SAMESITE = "strict"
+SESSION_COOKIE_SAMESITE = "strict"
 CSRF_COOKIE_HTTPONLY = True
 SESSION_COOKIE_HTTPONLY = True
 
 CORS_ORIGIN_ALLOW_ALL = False
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
     'http://localhost:3000',
+    'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
 )
 
@@ -102,6 +116,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000"
 ]
+
 CORS_ALLOW_CREDENTIALS = True
 CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
 

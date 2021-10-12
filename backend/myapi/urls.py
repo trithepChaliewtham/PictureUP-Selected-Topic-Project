@@ -1,10 +1,14 @@
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    # path('', views.index, name='index'),
     path('csrf', views.get_csrf, name='csrf'),
-    path('login', views.login, name='login'),
+    path('upload', views.uploadpicture, name="upload"),
+    path('login', views.userlogin, name='login'),
     path('signup', views.signup, name='signup'),
     path('api/picture/', views.PictureList.as_view()),
+    path('logout', auth_views.LogoutView.as_view(), name='logout'),
 ]

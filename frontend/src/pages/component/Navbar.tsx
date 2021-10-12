@@ -23,9 +23,13 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Welcom to PictureUP
+
+              <Link href="/"> Welcom to PictureUP</Link>
+
           </Typography>
+
           <Link href="/Loginpage">
             <Button color="inherit" >Login</Button>
           </Link>

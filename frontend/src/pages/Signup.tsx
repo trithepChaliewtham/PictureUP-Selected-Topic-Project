@@ -23,30 +23,37 @@ import axios from 'axios';
 
 const Signup = () =>{
 	const [ username , setUsername ]  = useState("");
-	const [ firtsname ,setFirstname ] = useState("");
+	const [ firstname ,setFirstname ] = useState("");
 	const [ lastname, setLastname ] = useState("");
 	const [ password, setPassword ] = useState("");
 	const [ re_password , setRepassword ] = useState("");
 	const [ email , setEmail ] = useState("");
+	const [ checkpass , setCheckpass ] = useState("");
+	const [ success , setSuccess ] = useState("");
 	const [ error , setError ] = useState("");
 	const [ csrf , setCSRF ] = useState("");
 
 	const formhandle = async (e) => {
 		e.preventDefault();
-
 		try{
 			if(password === re_password){
-				setError("");
-				const res = await axios.post('http://localhost:8000/signup', { username , password , firtsname , lastname , email },{
-					headers : {
-						'Content-Type': 'application/json',
-						'X-CSRFToken': csrf
-					},
-					credentials : "include"
-					},
+				setCheckpass("");
+				const res = await axios.post('http://localhost:8000/signup', { username , password , firstname , lastname , email },{
+						withCredentials: true,
+						headers : {
+							'Content-Type': 'application/json',
+							'X-CSRFToken': csrf ,
+						},
+					}
 				)
+				if(res.data.status == 201){
+					setSuccess(res.data.Response)
+				}else{
+					setError(res.data.Response)
+				}
+
 			}else{
-				setError("incorrect password matched");
+				setCheckpass("incorrect password matched");
 			}
 		}catch(err){
 			console.log(err)
@@ -70,7 +77,6 @@ const Signup = () =>{
 		<div >
 			<Header />
 			<Box sx={{ flexGrow: 1 }} >
-			{console.log(csrf)}
 		      <AppBar position="static">
 		        <Toolbar>
 		          <IconButton
@@ -83,7 +89,7 @@ const Signup = () =>{
 		            <MenuIcon />
 		          </IconButton>
 		          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-		            Welcom to PictureUP
+			            <Link href="/">Welcom to PictureUP</Link>
 		          </Typography>
 		          <Link href="/">
 		            <Button color="inherit" >Home</Button>
@@ -100,7 +106,9 @@ const Signup = () =>{
 			      autoComplete="off"
 			    >
 			    <Container sx={{ mt : 5,}}>
-						<h2>Log in </h2>
+						<h2>Sign up </h2>
+						<Box sx={{ color: 'success.main' ,mt :2 , mb : 2 }}>{success}
+						</Box>
 						<form onSubmit={formhandle}>
 							<div>
 								<TextField
@@ -116,7 +124,7 @@ const Signup = () =>{
 									required
 									id="fName"
 									label="firstname"
-									value={firtsname}
+									value={firstname}
 									autoComplete="on"
 									onChange={(e) => setFirstname(e.target.value)}
 								/>
@@ -155,7 +163,7 @@ const Signup = () =>{
 									onChange={(e) => setRepassword(e.target.value)}
 								/>
 							</div>
-							{error}
+							<Box sx={{ color: 'error.main' ,mt :1 , mb : 1 }}>{checkpass}</Box>
 							<div>
 								<TextField
 									type="email"
@@ -170,7 +178,7 @@ const Signup = () =>{
 						<Typography  sx={{mt : 2 }} variant="h5" component="h2">
 							Already have Account? 
 						</Typography>
-						<Typography  underline="always" sx={{mt : 1,mb : 20 ,'&:hover' : { color: 'blue' } }} variant="h6" component="h6">
+						<Typography  underline="always" sx={{mt : 1,mb : 18 ,'&:hover' : { color: 'blue' } }} variant="h6" component="h6">
 							<Link style={{ color: "blue"}} href="/Loginpage" sx={{ mt : 2}}>
 							  Log In here! 
 							</Link> 
