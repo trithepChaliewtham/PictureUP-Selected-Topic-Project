@@ -10,6 +10,7 @@ Back-end : Django
 # ขั้นตอนการติดตั้งเครื่องมืสำหหรับ Frontend Nextjs
 
 Tool :  frontend - axios, material-ui v^5.0.1
+
 เข้าไปที่โฟล์เดอร์ frontend แล้วพิมพ์คำสั่งด้านล่างใน cmd(Window) หรือ terminal(linux)
 !! โปรดเช็คให้แน่ใจว่าคุณอยู่ใน frontend เรียบร้อยแล้วก่อนที่จะใช้คำสั่งด้านล่าง 
 
@@ -17,14 +18,15 @@ Tool :  frontend - axios, material-ui v^5.0.1
 
 
 # ขั้นตอนการติดตั้งเครื่องมืสำหหรับ Backend Django
-
 backend - Django, django-cors-headers , rest_framework
-หรือลงทีเดียว(สำหรับ backend) ให้ใช้คำสั่งต่อไปนี้
+
+1.เข้าไปที่โฟล์เดอร์ backend จากนั้นให้ใช้คำสั่งต่อไปนี้
 	
 	pip install -r requirement.txt
+
 เมื่อลงเสร็จแล้วให้ไปตั่งค่าสำหรับ corsheaders , rest_framework และ media , media_root ใน setting.py
 
-setting.py
+2.setting.py
 ส่วนที่ 1 ใน INSTALLED_APPS
 	
 	INSTALLED_APPS =[
@@ -46,7 +48,7 @@ setting.py
 	CORS_ALLOW_CREDENTIALS = True
 	CORS_EXPOSE_HEADERS = ["Content-Type","X-CSRFToken"]
 
-ส่วนที่ 3 MEDIA_URL , MEDIA_ROOT
+3.MEDIA_URL , MEDIA_ROOT
 
 !! MEDIA_ROOT ในส่วนของ /home/carrot/Desktop/project ให้เปลี่ยนเป็น current path ที่ทำการ git clone ลงมาสามารถเช็ค path ได้ใน terminal หรือ command-line(cmd) 
 โดยคำสั่งต่อไปนี้ 
