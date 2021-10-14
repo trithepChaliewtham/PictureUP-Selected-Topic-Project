@@ -83,14 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite_backend.wsgi.application'
 
-# CSRF_COOKIE_SAMESITE = "Lax"
-# CSRF_COOKIE_HTTONLY = True
-# CSRF_COOKIE_HTTPONLY = True
-# CSRF_COOKIE_SECURE = True
-
-# SESSION_COOKIE_SAMESITE = "Lax"
-# SESSION_COOKIE_SECURE = True
-# SESSION_COOKIE_HTTONLY = True
 
 CSRF_COOKIE_SAMESITE = "strict"
 SESSION_COOKIE_SAMESITE = "strict"
@@ -101,6 +93,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
@@ -168,6 +161,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    "/home/carrot/Desktop/project/project-django/mydjango/static",
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/carrot/Desktop/project/PictureUP-Selected-Topic-Project/media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

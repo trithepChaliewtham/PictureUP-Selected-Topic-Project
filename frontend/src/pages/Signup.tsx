@@ -48,8 +48,10 @@ const Signup = () =>{
 				)
 				if(res.data.status == 201){
 					setSuccess(res.data.Response)
+					setTimeout(window.location.replace('/Loginpage'), 750)
 				}else{
 					setError(res.data.Response)
+					setSuccess(res.data.Response)
 				}
 
 			}else{
@@ -76,27 +78,7 @@ const Signup = () =>{
 			      
 		<div >
 			<Header />
-			<Box sx={{ flexGrow: 1 }} >
-		      <AppBar position="static">
-		        <Toolbar>
-		          <IconButton
-		            size="large"
-		            edge="start"
-		            color="inherit"
-		            aria-label="menu"
-		            sx={{ mr: 2 }}
-		          >
-		            <MenuIcon />
-		          </IconButton>
-		          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-			            <Link href="/">Welcom to PictureUP</Link>
-		          </Typography>
-		          <Link href="/">
-		            <Button color="inherit" >Home</Button>
-		          </Link>
-		        </Toolbar>
-		      </AppBar>
-		    </Box>
+			<Navbar />
 		    <Container style={{ textAlign : 'center',}} >
 		    	<Box
 			      sx={{
@@ -138,7 +120,6 @@ const Signup = () =>{
 									onChange={(e) => setLastname(e.target.value)}
 								/>
 							</div>
-							{/*{password === re_password? console.log(password,re_password):console.log(password,re_password)}*/}
 							<div>
 								<TextField
 									required
