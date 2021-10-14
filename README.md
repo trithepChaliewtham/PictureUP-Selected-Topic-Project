@@ -27,7 +27,7 @@ backend - Django, django-cors-headers , rest_framework
 เมื่อลงเสร็จแล้วให้ไปตั่งค่าสำหรับ corsheaders , rest_framework และ media , media_root ใน setting.py
 
 2.setting.py
-ส่วนที่ 1 ใน INSTALLED_APPS
+ส่วนที่ 1 ใน INSTALLED_APPS ให้เพิ่ม 'corsheaders','rest_framework', เข้าไป
 	
 	INSTALLED_APPS =[
 		....,
@@ -36,7 +36,7 @@ backend - Django, django-cors-headers , rest_framework
 		....,
 	]
 
-ส่วนที่ 2 หากยังไม่มีใน setting.py ให้ใส่เพิ่มเข้าไป(วางไว้ตรงไหนก็ได้)
+ส่วนที่ 2 หากยังไม่มีใน setting.py ให้ใส่เพิ่มเข้าไป(วางไว้ตรงไหนก็ได้ ห้ามวางใน body ของตัวอื่น)
 	
 	CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
@@ -55,13 +55,13 @@ backend - Django, django-cors-headers , rest_framework
 
 linux - terminal
 
-		$ pwd
-		/home/carrot/Desktop/project/PictureUP-Selected-Topic-Project
+	$ pwd
+	/home/carrot/Desktop/project/PictureUP-Selected-Topic-Project
 
  Window - cmd หรือ powershell
 
-		$ echo %cd%
-		C:\home\carrot\project\PictureUP-Selected-Topic-Project
+	$ echo %cd%
+	C:\home\carrot\project\PictureUP-Selected-Topic-Project
 
 
 จากนั้นเติมสำหรับ linux ให้เติม /media  ส่วน Window ให้เตืม \media จะได้เป็น 
