@@ -56,14 +56,26 @@ backend - Django, django-cors-headers , rest_framework
 linux - terminal
 
 		$ pwd
+		/home/carrot/Desktop/project/PictureUP-Selected-Topic-Project
 
  Window - cmd หรือ powershell
 
 		$ echo %cd%
+		C:\home\carrot\project\PictureUP-Selected-Topic-Project
 
+
+จากนั้นเติมสำหรับ linux ให้เติม /media  ส่วน Window ให้เตืม \media จะได้เป็น 
+
+linux : /home/carrot/Desktop/project//PictureUP-Selected-Topic-Project/media
+Window : C:\home\carrot\project\PictureUP-Selected-Topic-Project\media
+
+
+	MEDIA_ROOT = '/home/carrot/Desktop/project/PictureUP-Selected-Topic-Project/media'
+
+เช่น /home/anonymous/PictureUP-Selected-Topic-Project/media
 
 	$MEDIA_URL = '/media/'
-	$MEDIA_ROOT = '/home/carrot/Desktop/project/PictureUP-Selected-Topic-Project/media'
+	$MEDIA_ROOT = '<your_path>/PictureUP-Selected-Topic-Project/media'
 
 
 
