@@ -6,18 +6,17 @@ from django.middleware.csrf import get_token
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 # model and serailizer
-from .serializers import ImageSerializer
-from .models import Image
+from .serializers import ImageuploadSerializer
+from .models import Imageupload
 # restframework
 from rest_framework import generics
 # python library
 import json
 
 
-class ImageList(generics.ListAPIView):
-    queryset = Image.objects.all()
-    serializer_class = ImageSerializer
-    print('ImageSerializer data is : ', queryset)
+class ImageuploadList(generics.ListAPIView):
+    queryset = Imageupload.objects.all()
+    serializer_class = ImageuploadSerializer
 
 # Create your views here.
 
@@ -33,9 +32,7 @@ def fetchOne(request):
 @login_required
 def uploadpicture(request):
 	if request.method == 'POST':
-		print(request.POST['alt_text'])
-		print('Request data is : ', request.FILES['image'])
-		img = Image.objects.create(
+		img = Imageupload.objects.create(
 			owner= request.user,
 			upload_by = str(request.user),
 			image = request.FILES['image'],
@@ -50,8 +47,6 @@ def userprofile(request):
 	try:
 		if request.user.is_authenticated:
 			user = User.objects.get(id=request.user.id)
-			print('User : ', user)
-			print('firstname :' , request.user.first_name)
 			response = {
 				"Response" : "Already login" ,
 				"status" : 200, "user" : str(user) ,
@@ -64,7 +59,6 @@ def userprofile(request):
 			response = {"Response" : "Please log in first" , "status" : 401}			
 			return JsonResponse(response)
 	except Exception as err:
-		print(err)
 		response = {'Response' : 'Bad request ', 'status' : 400}
 		return JsonResponse(response)
 
@@ -72,7 +66,6 @@ def userprofile(request):
 def editprofile(request):
 	if request.method == "POST":
 		req = json.loads(request.body)
-		print(req)
 		user = User.objects.get(id=request.user.id)
 		user.username = req['user']
 		user.first_name = req['firstname']
@@ -89,12 +82,9 @@ def editprofile(request):
 def signup(request):
 	try:
 		if request.method == "POST":
-			print('From Frontend : ', json.loads(request.body))
 			req = json.loads(request.body)
-
 			# check if user already exist
 			if User.objects.filter(username=req['username']):
-				print(User.objects.filter(username=req['username']))
 				response = { 'Response' : "This accoount is already exist ", 'status' : '403' }
 				return JsonResponse(response)
 			# otherwise create user
@@ -110,20 +100,16 @@ def signup(request):
 				response = { 'Response' : "Created User Success ", 'status' : 201 }
 				return JsonResponse(response)
 	except Exception as track:
-		print('Error Found : ', track)
 		response = {'Response' : 'Create User Failed! ! ', 'status' : 400}
 		return JsonResponse(response)
 
 def userlogin(request):
 	if request.user.is_authenticated:
-		print('Request login from User : ', request.user.id)
 		response = {"Response" : "Already login" , "status" : 200, "user" : str(request.user)}
 		return JsonResponse(response)
 	if request.method == "POST":
-		print('From Frontend : ', json.loads(request.body))
 		req = json.loads(request.body)			
 		user = authenticate(request, username=req["username"], password=req["password"])
-		print(user)	
 		if user is not None:
 			login(request, user)
 			response = {"Response" : "Login Success!" , "status" : 200, "user" : str(request.user)}			
@@ -135,7 +121,6 @@ def userlogin(request):
 	return JsonResponse(response)
 
 def isAuthenticated(request):
-	print(request.user)
 	if request.user.is_authenticated:
 		user = User.objects.get(id=request.user.id)
 		response = {"Response" : "Already login" ,

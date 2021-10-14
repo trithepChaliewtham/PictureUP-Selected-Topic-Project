@@ -13,6 +13,6 @@ urlpatterns = [
     path('upload', views.uploadpicture, name="upload"),
     path('login', views.userlogin, name='login'),
     path('signup', views.signup, name='signup'),
-    path('api/picture/', views.ImageList.as_view()),
+    path('api/picture/', views.ImageuploadList.as_view()),
     path('logout', auth_views.LogoutView.as_view(), name='logout'),
 ]

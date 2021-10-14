@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Image
+from .models import Imageupload
 
 
-class ImageSerializer(serializers.ModelSerializer):
+class ImageuploadSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Image
+        model = Imageupload
         # fields = ('id','name','last_upload','upload_by')
         fields = ('id', 'image' , 'alt_text' , 'upload_by')

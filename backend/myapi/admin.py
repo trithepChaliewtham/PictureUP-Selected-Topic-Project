@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Image
+from .models import Imageupload
 
 # Register our model
-admin.site.register(Image)
+admin.site.register(Imageupload)
