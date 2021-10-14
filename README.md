@@ -66,7 +66,8 @@ linux - terminal
 
 จากนั้นเติมสำหรับ linux ให้เติม /media  ส่วน Window ให้เตืม \media จะได้เป็น 
 
-linux : /home/carrot/Desktop/project//PictureUP-Selected-Topic-Project/media
+linux : /home/carrot/Desktop/project/PictureUP-Selected-Topic-Project/media
+
 Window : C:\home\carrot\project\PictureUP-Selected-Topic-Project\media
 
 
