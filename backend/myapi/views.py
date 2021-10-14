@@ -39,7 +39,7 @@ def uploadpicture(request):
 			alt_text = request.POST['alt_text'], 
 		)	
 		img.save()
-		response = {'Response' : 'Upload Success !', 'status' : '201'}
+		response = {'Response' : 'Upload Success !', 'status' : 201}
 		return JsonResponse(response)
 
 @login_required

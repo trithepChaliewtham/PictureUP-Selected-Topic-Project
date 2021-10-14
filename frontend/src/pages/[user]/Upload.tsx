@@ -10,6 +10,8 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 // axios
 import axios from 'axios';
 function RedBar() {
@@ -39,7 +41,7 @@ const Upload = () => {
 	const [ email, setEmail ] = useState("");
 	const [ image ,setImage ] = useState(null);
 	const [ alt_text , setAltText ] = useState("");
-
+	const [ success , setSuccess ] = useState(false);
 	const uploadhandle = async (e) =>{
 		e.preventDefault();
 		const formData = new FormData();
@@ -55,8 +57,10 @@ const Upload = () => {
 					'X-CSRFToken': csrf ,
 				},
 			})
+			console.log(uploadimg.data)
 			if(uploadimg.data.status === 201){
-				alert('Upload Success !')
+				console.log('res : ',uploadimg)
+				setSuccess(!success)
 			}
 		}catch(err){
 			console.log(err)
@@ -72,7 +76,6 @@ const Upload = () => {
 					'X-CSRFToken': csrf ,
 				},
 			})
-			console.log(res)
 			if(res.data.status === 200 && csrf === null){
 					fetch("http://localhost:8000/csrf",{
 						credentials : "include",
@@ -104,7 +107,17 @@ const Upload = () => {
 						<Container style={{ textAlign:'center'}}>
 							<Typography sx={{mt:5,}}variant="h3" component="h2">
 								  Upload Image
-							</Typography>;
+							</Typography>
+							{
+								success?
+									<Box sx={{ color: 'error.main' , mb : 2  }} >
+										<Stack>
+											<Alert severity="success">Succesfully Upload Image</Alert>
+										</Stack>	
+									</Box>
+									:
+									<></>
+								}
 							<form onSubmit={uploadhandle}>
 								<RedBar sx={{mt:5, mb:5,}}  />
 									<TextField 
@@ -115,8 +128,7 @@ const Upload = () => {
 										required
 										onChange={e => setImage(e.target.files[0])}
 								/>
-								<RedBar />
-								<Container sx={{mt:5,mb:5}}>
+								<Container sx={{mt:3,mb:5}}>
 									<TextField
 										required
 										id="Alt text"
@@ -125,7 +137,7 @@ const Upload = () => {
 										onChange={(e) => setAltText(e.target.value)}
 									/>
 								</Container>
-								<Button type="submit" variant="contained" sx={{ mt: 2, mb: 1 }}size="large">Upload</Button>
+								<Button type="submit" variant="contained" sx={{ mb: 1 }}size="large">Upload</Button>
 							</form>
 						</Container>
 					<Footer />
