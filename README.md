@@ -78,6 +78,10 @@ Window : C:\home\carrot\project\PictureUP-Selected-Topic-Project\media
 	$MEDIA_URL = '/media/'
 	$MEDIA_ROOT = '<your_path>/PictureUP-Selected-Topic-Project/media'
 
+	#Example
+	#MEDIA_URL = '/media/' 
+	#MEDIA_ROOT = '/home/anonymous/PictureUP-Selected-Topic-Project/media'
+
 
 
 # วิธีการใช้งาน 
