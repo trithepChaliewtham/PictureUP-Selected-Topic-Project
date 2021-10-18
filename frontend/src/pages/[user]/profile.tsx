@@ -131,7 +131,7 @@ const profile = ({userid}) => {
 								    		<>
 								    			<Box sx={{ color: 'error.main' ,mt :2 , mb : 2  }} >
 													<Stack>
-														<Alert severity="success">Succesfully logged in</Alert>
+														<Alert severity="success">{success}</Alert>
 													</Stack>	
 												</Box>	
 								    		</>
