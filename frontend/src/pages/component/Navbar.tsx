@@ -82,12 +82,10 @@ const Navbar = () => {
                           <MenuIcon />
                         </IconButton>
                         <Menu {...bindMenu(popupState)}>
-                          <MenuItem ><Button type="" color="inherit" >Profile</Button></MenuItem>
-                          <MenuItem ><Button type="" color="inherit" >Creator</Button></MenuItem>
                           <MenuItem >
-                            <form >
-                                <Button type="" color="inherit" >Search</Button>
-                            </form>
+                              <Link href={`/${user}/profile`}>
+                                  <Button type="" color="inherit" >Profile</Button>
+                              </Link>
                           </MenuItem>
                           <MenuItem >
                             <form onSubmit={logouthandle}>
@@ -128,11 +126,15 @@ const Navbar = () => {
                           <MenuIcon />
                         </IconButton>
                         <Menu {...bindMenu(popupState)}>
-                          <MenuItem ><Button type="" color="inherit" >Creator</Button></MenuItem>
                           <MenuItem >
-                            <form >
-                                <Button type="" color="inherit" >Search</Button>
-                            </form>
+                            <Link href="/Signup">
+                            <Button type="" color="inherit" >Sign up</Button>
+                            </Link>
+                          </MenuItem>
+                          <MenuItem >
+                            <Link href="/Loginpage">
+                                <Button type="" color="inherit" >Log in</Button>
+                            </Link>
                           </MenuItem>
                         </Menu>
                         </>
